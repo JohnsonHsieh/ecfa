@@ -1,3 +1,4 @@
-�{����r�༽ vs �U�j�C�����
+﻿現場文字轉播 vs 各大媒體報導
 =======
-�����@�ӹ���@�~�A���3/24�����ѪA�T�ƥ󤤡Ag0v�Ҵ��Ѥ��{����r�༽�P�U�j�C����ɪ����p�ʤ��R�C
+此為一個實驗作品，比較3/24號當天服貿事件中，g0v所提供之現場文字轉播與各大媒體報導的關聯性分析。
+![][https://github.com/JohnsonHsieh/ecfa/blob/master/0324-ecfa.png]
