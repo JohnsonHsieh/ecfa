@@ -1,0 +1,17 @@
+{
+    "contents" : "\n\nd.corpus <- Corpus(DirSource(input), list(language = NA))\n\nd.corpus <- tm_map(d.corpus, removePunctuation) #清除標點符號\nd.corpus <- tm_map(d.corpus, removeNumbers) #清除數字\nd.corpus <- tm_map(d.corpus, function(word) { #清除英文字母\n  gsub(\"[A-Za-z0-9]\", \"\", word)\n})\n\nd.corpus <- tm_map(d.corpus, segmentCN, nature = TRUE, returnType='tm')\n\nd.corpus <- tm_map(d.corpus, segmentCN, nature = TRUE)\nd.corpus <- lapply(d.corpus, function(sent) sent[names(sent)==\"n\"])\nd.corpus <- Corpus(VectorSource(d.corpus))\n\nd.corpus <- Corpus(VectorSource(d.corpus))\nd.corpus <- tm_map(d.corpus, removeWords, myStopWords)\ntdm <- TermDocumentMatrix(d.corpus, control = list(wordLengths = c(2, 5)))\nm1 <- as.matrix(tdm)\nv <- sort(rowSums(m1), decreasing = TRUE)\nd <- data.frame(word = names(v), freq = v)\nhead(d)\nlibrary(jsonlite)\ndump <- fromJSON(\"../ecfa2/dump.out\")\ndump$source[2]\n",
+    "created" : 1395831203548.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "2695533180",
+    "id" : "E85557D1",
+    "lastKnownWriteTime" : 1395781418,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

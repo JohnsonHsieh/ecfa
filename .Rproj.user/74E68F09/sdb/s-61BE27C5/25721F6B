@@ -1,0 +1,17 @@
+{
+    "contents" : "words1 <- readLines(\"http://wubi.sogou.com/dict/download_txt.php?id=9182\") # ptt字庫\nwords2 <- readLines(\"http://wubi.sogou.com/dict/download_txt.php?id=9912\") # 繁體字庫\nwords <- c(\"服貿\", \"服贸\", \"反服貿\", \"反服贸\", \"馬英九\", \"江宜樺\", \"立法院\", toTrad(c(words1,words2))) # 自建字庫\ninsertWords(words)\nmyStopWords <- c(stopwordsCN(), \"編輯\", \"時間\", \"標題\", \"發信\", \"實業\", \"作者\", \"要聞\", \"即時新聞\", \"聯合新聞網\", \"全文網址\", \"全文\", \"網址\", \"我們\")\n\n\nd.corpus <- Corpus(DirSource(\"0324/g0v\"), list(language = NA))\nd.corpus <- tm_map(d.corpus, removePunctuation)\nd.corpus <- tm_map(d.corpus, removeNumbers)\nd.corpus <- tm_map(d.corpus, function(word) {\n  gsub(\"[A-Za-z0-9]\", \"\", word)\n})\ninsertWords(words)\nd.corpus <- tm_map(d.corpus, segmentCN)\nd.corpus <- Corpus(VectorSource(d.corpus))\ncontrol=list(removePunctuation=TRUE, minDocFreq=5,wordLengths = c(2, 5),weighting = weightTfIdf)\ntdm <- TermDocumentMatrix(d.corpus, control = control)\n\n\n\nmyStopWords <- c(stopwordsCN(), \"編輯\", \"時間\", \"標題\", \"發信\", \"實業\", \"作者\")\n\nd.corpus <- tm_map(d.corpus, segmentCN, nature = TRUE)\nd.corpus <- Corpus(VectorSource(d.corpus))\ntdm <- TermDocumentMatrix(d.corpus, control = list(wordLengths = c(2, 5)))\nm1 <- as.matrix(tdm)\nv <- sort(rowSums(m1), decreasing = TRUE)\nd <- data.frame(word = names(v), freq = v)\nhead(d)\nwrite.table(data.frame(freq=d$freq, word=d$word), file=output,quote=FALSE,sep=\"\\t\",row.names=FALSE, col.names=FALSE)\n\ndata.frame(freq=d$freq, word=d$word)\nsegment.options(isNameRecognition = TRUE)\n\nteststring2 = \"江宜樺到立法院抗議反服貿\"\nsegmentCN(teststring2)\nsegmentCN(teststring2, nature=1)\ninsertWords(c(\"服贸\", \"反贸\"), save = TRUE)\n",
+    "created" : 1395766299915.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3419576991",
+    "id" : "25721F6B",
+    "lastKnownWriteTime" : 1395756006,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
