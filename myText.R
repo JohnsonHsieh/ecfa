@@ -10,9 +10,17 @@ library(vegan)
 
 words1 <- readLines("http://wubi.sogou.com/dict/download_txt.php?id=9182") # ptt字庫
 words2 <- readLines("http://wubi.sogou.com/dict/download_txt.php?id=9912") # 繁體字庫
-words <- c("服貿","反服貿", "馬英九", "江宜樺", "立法院", toTrad(c(words1,words2))) # 自建字庫
+words <- toTrad(c(words1,words2))
+
+strwords <-  c("服貿", "服贸", "馬英九", "江宜樺", "立法院", "國會", "行政院", "魏揚", "林飛帆", "陳為廷", 
+               "警察", "暴力", "鎮暴警察", "學運", "黑色島國", "清大", "台大", "鎮壓", "後退", "張慶忠", "王金平")
+insertWords(strwords, strtype=rep("n", length(strwords)), numfreq=rep(1000, length(strwords)))
+
 insertWords(words)
-myStopWords <- c(stopwordsCN(), "編輯", "時間", "標題", "發信", "實業", "作者", "要聞", "即時新聞", "聯合新聞網", "全文網址", "全文", "網址")
+myStopWords <- c(toTrad(stopwordsCN()), "編輯", "時間", "標題", "發信", "實業", "作者", "要聞", "即時新聞", "聯合新聞網", "全文網址", "全文", "網址", 
+                 "大家", "今天", "知道", "非常", "很多", "現在", "希望", "不要", "已經", "看到", "謝謝", "其實", "事情")
+
+
 #----------------------------------------------------------
 # 爬ptt 服貿版文章 http://www.ptt.cc/bbs/FuMouDiscuss/
 #----------------------------------------------------------
@@ -85,23 +93,23 @@ data <- unlist(data)
 # 把文章進行分詞, 匯出名詞的頻率 
 myText <- function(fileDir="g0v", output="g0v-freq.txt"){
   d.corpus <- Corpus(DirSource(fileDir), list(language = NA))
-  d.corpus <- tm_map(d.corpus, removeWords, myStopWords)
+  
   d.corpus <- tm_map(d.corpus, removePunctuation) #清除標點符號
   d.corpus <- tm_map(d.corpus, removeNumbers) #清除數字
   d.corpus <- tm_map(d.corpus, function(word) { #清除英文字母
     gsub("[A-Za-z0-9]", "", word)
   })
   
-  
-  
   d.corpus <- tm_map(d.corpus, segmentCN, nature = TRUE)
   d.corpus <- tm_map(d.corpus, function(sentence) {
     noun <- lapply(sentence, function(w) {
-      w[names(w) == "n"]
+      w[(names(w) == "n")] # 只比較名詞
     })
     unlist(noun)
   })
+  
   d.corpus <- Corpus(VectorSource(d.corpus))
+  d.corpus <- tm_map(d.corpus, removeWords, myStopWords)
   tdm <- TermDocumentMatrix(d.corpus, control = list(wordLengths = c(2, Inf)))
   m1 <- as.matrix(tdm)
   v <- sort(rowSums(m1), decreasing = TRUE)
@@ -111,7 +119,7 @@ myText <- function(fileDir="g0v", output="g0v-freq.txt"){
   data.frame(freq=d$freq, word=d$word)
 }
 fau <- list()
-fau[[1]] <- myText(fileDir="0324/g0v", output="g0v-freq.txt") 
+fau[[1]] <- myText(fileDir="0325/g0v", output="g0v-freq.txt") 
 fau[[2]] <- myText(fileDir="0324/ptt", output="ptt-freq.txt") # 讀取很久 請慎用
 fau[[2]] <- fau[[2]][-(3:6),]
 fau[[3]] <- myText(fileDir="0324/apple", output="apple-freq.txt") # 蘋果日報
@@ -124,7 +132,7 @@ myPng <- function(input=fau0, output="wordcloud.png",min.freq=2){
   library(RColorBrewer)
   pal2 <- brewer.pal(8,"Dark2")
   par(family="Arial Unicode MS")
-  png(output, width=1280,height=800)
+  png(output, width=800,height=800)
   wordcloud(input$word,input$freq, scale=c(10,.4),min.freq=min.freq,
             max.words=Inf, random.order=FALSE, colors=pal2)
   dev.off()
