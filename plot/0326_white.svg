@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg contentScriptType="text/ecmascript" width="595px"
+     xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify"
+     contentStyleType="text/css" viewBox="-75 -299 355 381" height="638px"
+     preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"
+     version="1.1">
+    <g id="edges">
+        <path fill="none" stroke-width="10.0"
+              d="M 270.190552,-179.222229 C 231.111053,-83.905602 29.516886,0.450081 -65.799744,-38.629425"
+              class="1 2" stroke-opacity="1.0" stroke="#7f007f"/>
+        <path fill="none" stroke-width="9.31249"
+              d="M 270.190552,-179.222229 C 218.960434,-172.174026 131.542923,-238.446899 124.494713,-289.677002"
+              class="1 5" stroke-opacity="1.0" stroke="#7f7f00"/>
+        <path fill="none" stroke-width="9.888057"
+              d="M 270.190552,-179.222229 C 196.302567,-124.085220 2.765087,-152.211700 -52.371918,-226.099686"
+              class="1 8" stroke-opacity="1.0" stroke="#ff6400"/>
+        <path fill="none" stroke-width="7.929464"
+              d="M 270.190552,-179.222229 C 282.343506,-90.957573 168.175934,59.668816 79.911293,71.821754"
+              class="1 15" stroke-opacity="1.0" stroke="#ff007f"/>
+        <path fill="none" stroke-width="3.7447956"
+              d="M 270.190552,-179.222229 C 305.005402,-139.046188 296.963654,-26.559845 256.787598,8.255017"
+              class="1 16" stroke-opacity="1.0" stroke="#cc4c4c"/>
+        <path fill="none" stroke-width="8.24259"
+              d="M -65.799744,-38.629425 C -77.950363,-126.897835 36.226307,-277.526367 124.494713,-289.677002"
+              class="2 5" stroke-opacity="1.0" stroke="#007f7f"/>
+        <path fill="none" stroke-width="9.445408"
+              d="M -65.799744,-38.629425 C -100.608231,-78.809036 -92.551537,-191.291199 -52.371918,-226.099686"
+              class="2 8" stroke-opacity="1.0" stroke="#7f647f"/>
+        <path fill="none" stroke-width="5.753432"
+              d="M -65.799744,-38.629425 C -14.567301,-45.681393 72.859329,20.589308 79.911293,71.821754"
+              class="2 15" stroke-opacity="1.0" stroke="#7f00ff"/>
+        <path fill="none" stroke-width="1.7632146"
+              d="M -65.799744,-38.629425 C 8.094616,-93.770004 201.647018,-65.639343 256.787598,8.255017"
+              class="2 16" stroke-opacity="1.0" stroke="#4c4ccc"/>
+        <path fill="none" stroke-width="9.563877"
+              d="M 124.494713,-289.677002 C 101.836845,-241.588226 -4.283125,-203.441833 -52.371918,-226.099686"
+              class="5 8" stroke-opacity="1.0" stroke="#7fe300"/>
+        <path fill="none" stroke-width="3.6517334"
+              d="M 124.494713,-289.677002 C 187.877777,-208.460556 161.127747,8.438680 79.911293,71.821754"
+              class="5 15" stroke-opacity="1.0" stroke="#7f7f7f"/>
+        <path fill="none" stroke-width="0.0"
+              d="M 124.494713,-289.677002 C 210.539703,-256.549194 289.915436,-77.789963 256.787598,8.255017"
+              class="5 16" stroke-opacity="1.0" stroke="#4ccc4c"/>
+        <path fill="none" stroke-width="5.047546"
+              d="M -52.371918,-226.099686 C 33.669010,-192.972031 113.038940,-14.219173 79.911293,71.821754"
+              class="8 15" stroke-opacity="1.0" stroke="#ff647f"/>
+        <path fill="none" stroke-width="1.1997269"
+              d="M -52.371918,-226.099686 C 56.330921,-241.060638 241.826630,-100.447823 256.787598,8.255017"
+              class="8 16" stroke-opacity="1.0" stroke="#ccb04c"/>
+        <path fill="none" stroke-width="6.1077185"
+              d="M 79.911293,71.821754 C 102.573212,23.733139 208.698975,-14.406902 256.787598,8.255017"
+              class="15 16" stroke-opacity="1.0" stroke="#cc4ccc"/>
+    </g>
+    <g id="nodes">
+        <circle fill-opacity="1.0" fill="#ff0000" r="10.0" cx="270.19055"
+                class="1" cy="-179.22223" stroke="#000000" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#0000ff" r="10.0" cx="-65.79974"
+                class="2" cy="-38.629425" stroke="#000000" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#00ff00" r="10.0" cx="124.49471"
+                class="5" cy="-289.677" stroke="#000000" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#ffc800" r="10.0" cx="-52.371918"
+                class="8" cy="-226.09969" stroke="#000000" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#ff00ff" r="10.0" cx="79.91129"
+                class="15" cy="71.821754" stroke="#000000" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+        <circle fill-opacity="1.0" fill="#999999" r="10.0" cx="256.7876"
+                class="16" cy="8.255017" stroke="#000000" stroke-opacity="1.0"
+                stroke-width="1.0"/>
+    </g>
+</svg>
